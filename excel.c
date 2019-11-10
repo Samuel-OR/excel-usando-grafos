@@ -7,23 +7,23 @@
 #define COLUNAS 8
 int enderecoGERAL=0;
 int grau_max = (COLUNAS>LINHAS) ? COLUNAS:LINHAS ;
+
+
+//ESTRUTURAS 
 typedef struct{
 	int linha;
 	int coluna;
 }Celula;
-
 typedef struct{
 	int nro_vertices;
 	int **pesos;
 	int ***ponteiro;
 } Grafo;
-
 typedef struct{
 	int inicio;
 	int fim;
 	int resultado;
 }Operacao;
-
 typedef struct{
 	Celula A;
 	Celula B;
@@ -47,8 +47,6 @@ Grafo *cria_Grafo(int nro_vertices){
 			
 			for(int z=0; z<grau_max; z++)
 				gr->ponteiro[j][z] = &enderecoGERAL;
-			
-			//	gr->ponteiro[j][z] = -1;
 		}
 		
 	}
@@ -68,6 +66,7 @@ void liberar_Grafo(Grafo *gr){
 	}
 	printf("GRAFO LIBERADO\n");
 }
+
 
 //FUNÇÕES PEGAR COLUNA/LINHA/TIPO DE OPERAÇÃO/INTERVALO
 int getColun(char *comando){
@@ -142,6 +141,7 @@ Intervalo getIntervalo(char *comando){
 	}
 	return aux;
 }
+
 
 //FUNÇÕES PARA CALCULAR RESULTADO
 int getValor(char *comando){
@@ -244,6 +244,7 @@ int getReferencia(Grafo *gr,char *comando){
 	gr->ponteiro[lineA][colunA] = &(gr->pesos[lineB][colunB]);
 }
 
+
 //FUNÇÕES PARA TRATAR ENTRADA
 int setDADO(Grafo *gr, char *comando, int *referenciaCelula){
 	int resultado=0;
@@ -309,6 +310,7 @@ int main(){
 	processarEntrada(gr, "A2 30\0");
 	processarEntrada(gr, "C1 @soma(A1..B2)\0");
 	processarEntrada(gr, "D1 =C1\0");
+
 	while (0==0){
 		printf("\n--------- MENU ---------\n");
 		printf(" [1]-Reiniciar Tabela\n");
