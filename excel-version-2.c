@@ -322,9 +322,7 @@ int main(){
 		scanf("%d", &op);
 		switch (op){
 			case 1:
-				
-				if (gr != NULL)
-					liberar_Grafo(gr);
+	
 				gr = cria_Grafo(LINHAS+COLUNAS);
 
 				printf("\n- - Grafo CRIADO - -\n");
